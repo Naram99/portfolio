@@ -1,8 +1,12 @@
-import { useState } from "react";
+import NavBar from "../components/NavBar";
 
 function Home() {
-  const [activePage, setActivePage] = useState<string>("home");
-  return <h1>Home</h1>;
+  return (
+    <>
+      <NavBar activePage="Home" />
+      <h1>Home</h1>
+    </>
+  );
 }
 
 export default Home;

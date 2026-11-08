@@ -1,39 +1,36 @@
-import { useState } from "react";
+import { Link } from "react-router";
 
-type Pages = "Home" | "Projects" | "About";
+type AllowedPage = "Home" | "Projects" | "About" | "Components";
 
-function NavBar() {
-  const [activePage, setActivePage] = useState<Pages>("Home");
-
+function NavBar({ activePage }: { activePage: AllowedPage }) {
   return (
     <nav>
       <ul>
         <li>
-          <a
-            href="/"
-            className={activePage === "Home" ? "active" : ""}
-            onClick={() => setActivePage("Home")}
-          >
+          <Link to="/" className={activePage === "Home" ? "active" : ""}>
             Home
-          </a>
+          </Link>
         </li>
         <li>
-          <a
-            href="/projects"
+          <Link
+            to="/projects"
             className={activePage === "Projects" ? "active" : ""}
-            onClick={() => setActivePage("Projects")}
           >
             Projects
-          </a>
+          </Link>
         </li>
         <li>
-          <a
-            href="/about"
-            className={activePage === "About" ? "active" : ""}
-            onClick={() => setActivePage("About")}
-          >
+          <Link to="/about" className={activePage === "About" ? "active" : ""}>
             About
-          </a>
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/components"
+            className={activePage === "Components" ? "active" : ""}
+          >
+            Components
+          </Link>
         </li>
       </ul>
     </nav>
